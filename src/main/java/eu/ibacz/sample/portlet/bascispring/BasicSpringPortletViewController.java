@@ -21,6 +21,14 @@ import javax.portlet.ActionResponse;
 
 import static eu.ibacz.sample.portlet.bascispring.BasicSpringPortletConstants.*;
 
+import com.liferay.journal.service.JournalArticleLocalServiceUtil;
+import com.liferay.journal.service.JournalArticleServiceUtil;
+import com.liferay.journal.service.JournalContentSearchLocalServiceUtil;
+import com.liferay.portal.kernel.service.CompanyLocalService;
+import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.sohlman.liferay.sbfoo.service.FooLocalServiceUtil;
+
 /**
  * This class is base controller for VIEW mode.
  */
