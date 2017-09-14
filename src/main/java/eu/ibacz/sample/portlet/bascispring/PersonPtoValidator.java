@@ -15,12 +15,10 @@ public class PersonPtoValidator implements Validator {
     private static final DateTime minDate = DateTime.now().minusYears(130);
     private static final DateTime maxDate = DateTime.now().plusYears(130);
 
-    @Override
     public boolean supports(Class<?> clazz) {
         return PersonPtoValidator.class.isAssignableFrom(clazz);
     }
 
-    @Override
     public void validate(Object target, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "basicspring-err-null-value");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfBirth", "basicspring-err-null-value");
