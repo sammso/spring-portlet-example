@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.ibacz.sample</groupId>
@@ -16,32 +17,29 @@
 		<liferay.version>6.2.1</liferay.version>
 
 		<spring.version>3.2.18.RELEASE</spring.version>
-
+		<liferay.repository.url>https://repository-cdn.liferay.com/nexus/content/groups/public/</liferay.repository.url>
 		<java.version>1.8</java.version>
 	</properties>
-
+	<repositories>
+		<repository>
+			<id>liferay-public</id>
+			<url>${liferay.repository.url}</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>liferay-public</id>
+			<url>${liferay.repository.url}</url>
+		</pluginRepository>
+	</pluginRepositories>
 	<build>
 		<plugins>
-		<!-- 
-			<plugin>
-				<groupId>com.liferay.maven.plugins</groupId>
-				<artifactId>liferay-maven-plugin</artifactId>
-				<version>${liferay.maven.plugin.version}</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>build-css</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
-					<liferayVersion>${liferay.version}</liferayVersion>
-					<pluginType>portlet</pluginType>
-				</configuration>
-			</plugin>
-			 -->
+			<!-- <plugin> <groupId>com.liferay.maven.plugins</groupId> <artifactId>liferay-maven-plugin</artifactId> 
+				<version>${liferay.maven.plugin.version}</version> <executions> <execution> 
+				<phase>generate-sources</phase> <goals> <goal>build-css</goal> </goals> </execution> 
+				</executions> <configuration> <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir> 
+				<liferayVersion>${liferay.version}</liferayVersion> <pluginType>portlet</pluginType> 
+				</configuration> </plugin> -->
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.5</version>
@@ -55,26 +53,8 @@
 		<!-- Liferay dependencies -->
 		<dependency>
 			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.portal.kernel</artifactId>
-			<version>2.3.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.util.bridges</artifactId>
-			<version>2.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.util.taglib</artifactId>
-			<version>2.1.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.util.java</artifactId>
-			<version>2.0.1</version>
+			<artifactId>release.portal.api</artifactId>
+			<version>7.3.5-ga6</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Spring dependencies -->
@@ -123,31 +103,4 @@
 			<version>2.3</version>
 		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>sonatype-release</id>
-			<name>Sonatype Repository</name>
-			<url>http://oss.sonatype.org/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>sonatype-release</id>
-			<name>Sonatype Repository</name>
-			<url>http://oss.sonatype.org/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 </project>
